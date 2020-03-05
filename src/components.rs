@@ -1,5 +1,8 @@
+extern crate specs;
 use specs::prelude::*;
-use rltk::{RGB};
+extern crate rltk;
+extern crate specs_derive;
+use rltk::RGB;
 
 #[derive(Component)]
 pub struct Position {
@@ -16,3 +19,10 @@ pub struct Renderable {
 
 #[derive(Component, Debug)]
 pub struct Player {}
+
+#[derive(Component)]
+pub struct Viewshed {
+    pub visible_tiles: Vec<rltk::Point>,
+    pub range: i32,
+    pub dirty: bool,
+}
